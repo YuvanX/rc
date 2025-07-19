@@ -10,7 +10,7 @@ export const SignUpForm = () => {
         <div className="col-span-8 border">
             <img src="/images/f1.jpeg" className="object-cover w-full rounded-l-xl"/>
         </div>
-        <div className="col-span-4">
+        <div className="col-span-4 flex justify-center items-center">
             <Card className="flex flex-col py-5">
                 <CardHeader>
                     <CardTitle className="text-2xl font-bold">Exclusive RC Toys</CardTitle>
