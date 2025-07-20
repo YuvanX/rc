@@ -9,11 +9,48 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  email     String   @unique
-  password  String
-  username  String
-  createdAt DateTime @default(now())
+  id           String   @id @default(uuid())
+  email        String   @unique
+  password     String
+  username     String
+  createdAt    DateTime @default(now())
+
+  wishlist     WishList[]
+  cartItems    Cart[] 
+}
+
+model Product {
+  id            String    @id @default(uuid())
+  name          String
+  description   String
+  brandName     String
+  createdAt     DateTime  @default(now())
+
+  wishList    WishList[]
+  cartItems   Cart[]
+}
+
+model WishList {
+  id          String    @id  @default(uuid())
+  userId      String    
+  productId   String   
+
+  product     Product   @relation(fields: [productId], references: [id])
+  user        User      @relation(fields: [userId], references: [id])
+
+  @@unique([userId, productId])
+}
+
+model Cart {
+  id          String    @id @default(uuid())
+  userId      String
+  productId   String
+  quantity    Int
+  
+  product     Product   @relation(fields: [productId], references: [id])
+  user        User      @relation(fields: [userId], references: [id])
+
+  @@unique([userId, productId])
 }
 
 
