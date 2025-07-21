@@ -15,43 +15,45 @@ model User {
   username     String
   createdAt    DateTime @default(now())
 
-  wishlist     WishList[]
-  cartItems    Cart[] 
+  wishList     WishList[]
+  cartItems    Cart[]
 }
 
 model Product {
-  id            String    @id @default(uuid())
-  name          String
+  id            String    @id  @default(uuid())
+  name          String    
   description   String
   brandName     String
+  price         Int
   createdAt     DateTime  @default(now())
-
-  wishList    WishList[]
-  cartItems   Cart[]
+  
+  wishList      WishList[]
+  cart          Cart[]
 }
 
 model WishList {
-  id          String    @id  @default(uuid())
-  userId      String    
-  productId   String   
+  id            String    @id @default(uuid())
+  userId        String
+  productId     String
 
-  product     Product   @relation(fields: [productId], references: [id])
-  user        User      @relation(fields: [userId], references: [id])
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product       Product   @relation(fields: [productId], references: [id], onDelete: Cascade)
 
   @@unique([userId, productId])
 }
 
 model Cart {
-  id          String    @id @default(uuid())
-  userId      String
-  productId   String
-  quantity    Int
-  
-  product     Product   @relation(fields: [productId], references: [id])
-  user        User      @relation(fields: [userId], references: [id])
+  id            String  @id @default(uuid())
+  userId        String
+  productId     String
+  quantity      Int
 
-  @@unique([userId, productId])
+  user          User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product       Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+
 }
+
 
 
 
