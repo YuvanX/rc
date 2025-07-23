@@ -1,29 +1,21 @@
 'use client'
-import { Button } from "@workspace/ui/components/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@workspace/ui/components/card"
 import { Input } from "@workspace/ui/components/input"
 import { Label } from "@workspace/ui/components/label"
 import { useState } from "react"
 
-export const SignUp = () => {
-    const [username, setUsername] = useState<string>("");
-    const [userEmail, setUserEmail] = useState<string>("");
-    const [userPassword, setUserPassword] = useState<string>("");
-
+export const SignIn = () => {
+    const [userEmail, setUserEmail] = useState<string>();
+    const [userPassword, setUserPassword] = useState<string>();
 
     return <Card className="min-w-lg font-satoshi bg-transparent border-none">
         <CardHeader className="text-center">
             <div className="text-5xl mb-5 font-striper text-[#BAFD50]">rev100x</div>
-            <CardTitle className="text-3xl font-bold">Create a new Account</CardTitle>
-            <CardDescription className="text-lg">To use revcars, Please enter your details</CardDescription>
+            <CardTitle className="text-3xl font-bold">Log in to your account</CardTitle>
+            <CardDescription className="text-lg">Welcome back! Please enter your details</CardDescription>
         </CardHeader>
         <CardContent>
-                
             <form className="space-y-4">
-                <div className="space-y-3">
-                    <Label className="font-bold text-lg">Username</Label>
-                    <Input onChange={(e) => setUsername(e.target.value)} className="border-none py-7 !bg-[#1F1F22]"/>
-                </div>
                 <div className="space-y-3">
                     <Label className="font-bold text-lg">Email</Label>
                     <Input onChange={(e) => setUserEmail(e.target.value)} className="border-none py-7 !bg-[#1F1F22]"/>
@@ -32,9 +24,8 @@ export const SignUp = () => {
                     <Label className="font-bold text-lg">Password</Label>
                     <Input onChange={(e) => setUserPassword(e.target.value)} className="border-none py-7 !bg-[#1F1F22]"/>
                 </div>
-                <Button className="bg-[#BAFD50] w-full mt-1 py-5 rounded-md font-bold">Sign Up</Button>
-
-                <div className="text-center mt-3 text-lg">Already have an account? <span className="text-[#BAFD50]">Log in</span></div>
+                
+                <div className="text-center mt-3 text-lg">Don't have an account? <span className="text-[#BAFD50]">Sign up</span></div>
             </form>
         </CardContent>
     </Card>
