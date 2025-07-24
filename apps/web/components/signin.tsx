@@ -2,6 +2,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@workspace/ui/components/card"
 import { Input } from "@workspace/ui/components/input"
 import { Label } from "@workspace/ui/components/label"
+import Link from "next/link"
 import { useState } from "react"
 
 export const SignIn = () => {
@@ -25,7 +26,7 @@ export const SignIn = () => {
                     <Input onChange={(e) => setUserPassword(e.target.value)} className="border-none py-7 !bg-[#1F1F22]"/>
                 </div>
                 
-                <div className="text-center mt-3 text-lg">Don't have an account? <span className="text-[#BAFD50]">Sign up</span></div>
+                <div className="text-center mt-3 text-lg">Don't have an account? <Link href={'/signup'} className="text-[#BAFD50]">Sign up</Link></div>
             </form>
         </CardContent>
     </Card>
