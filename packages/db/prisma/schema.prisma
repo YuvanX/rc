@@ -25,11 +25,15 @@ model Product {
   description   String
   brandName     String
   price         Int
+  thumbImage    String
   createdAt     DateTime  @default(now())
   
   wishList      WishList[]
   cart          Cart[]
+
 }
+
+
 
 model WishList {
   id            String    @id @default(uuid())
