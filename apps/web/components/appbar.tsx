@@ -2,8 +2,8 @@ import { Input } from "@workspace/ui/components/input"
 import { SearchIcon, ShoppingCart } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@workspace/ui/components/avatar"
 export const AppBar = () => {
-    return <div className="w-full fixed top-5 px-20 font-satoshi">
-        <div className="flex items-center justify-between border border/10  py-2 px-3 rounded-full bg-white/10 backdrop-blur-lg">
+    return <div className="w-full fixed top-0  font-satoshi">
+        <div className="flex items-center justify-between border-b border/10  py-2 px-5  bg-white/10 backdrop-blur-lg">
             <div className="font-bold text-[#BAFD50] text-2xl tracking-tighter">
                 revcars
             </div>
